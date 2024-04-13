@@ -49,23 +49,25 @@ public class OverGameView extends JPanel implements View {
         OverGameController overGameController=new OverGameController(game);
         setPreferredSize(Constants.DIMENSION_DEFAULT);
         setLayout(new GridBagLayout());
-        messageLabel =new JLabel("");
-        buttons=new JButton[Constants.OVER_OPTIONS.length];
+
         GridBagConstraints gbc = new GridBagConstraints();
-        messageLabel.setFont(Constants.FONT_OVER_GAME);
         gbc.gridx = 0;
         gbc.gridy = 0;
-        gbc.insets = new Insets(0, 0, bottomMessage, 0);
+        gbc.insets = new Insets(20, 0, 10, 0); // Thêm padding cho messageLabel
+
+        messageLabel = new JLabel("");
+        messageLabel.setFont(new Font("Arial", Font.BOLD, 24)); // Thiết lập kiểu chữ cho messageLabel
         add(messageLabel, gbc);
-        for (int i=0;i<Constants.OVER_OPTIONS.length;i++) {
-            buttons[i]=new JButton(Constants.OVER_OPTIONS[i]);
-            buttons[i].setPreferredSize(new Dimension(200,50));
-            buttons[i].setFont(Constants.FONT_BUTTON);
+
+        buttons = new JButton[Constants.OVER_OPTIONS.length];
+        for (int i = 0; i < Constants.OVER_OPTIONS.length; i++) {
+            gbc.gridy++; // Di chuyển đến hàng tiếp theo
+            buttons[i] = new JButton(Constants.OVER_OPTIONS[i]);
+            buttons[i].setPreferredSize(new Dimension(200, 50));
+            buttons[i].setFont(new Font("Arial", Font.PLAIN, 18)); // Thiết lập kiểu chữ cho các nút
             buttons[i].addActionListener(overGameController);
-            buttons[i].setActionCommand(i+"");
-            gbc.gridx = 0;
-            gbc.gridy = i+1;
-            gbc.insets = new Insets(0, 0, Constants.BOTTOM_GAP, 0);
+            buttons[i].setActionCommand(String.valueOf(i));
+            gbc.insets = new Insets(10, 0, 10, 0); // Điều chỉnh khoảng cách giữa các nút
             add(buttons[i], gbc);
         }
     }

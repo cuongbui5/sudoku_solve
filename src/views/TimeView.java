@@ -59,7 +59,7 @@ public class TimeView extends JPanel implements View {
 
     @Override
     public void initView() {
-        ContinueController continueController =new ContinueController(this, game);
+        ContinueController continueController =new ContinueController(game);
         TimeController timeController=new TimeController(this,game);
         this.setPreferredSize(dimension);
         setLayout(new BorderLayout());

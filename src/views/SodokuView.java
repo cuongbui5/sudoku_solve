@@ -52,10 +52,12 @@ public class SodokuView extends JPanel implements View {
     public void setInit(boolean init) {
         this.init = init;
     }
+    private SudokuSolver sudokuSolver;
 
     @Override
     public void initView() {
-        SodokuController sodokuController=new SodokuController(this,game, timeView);
+        SudokuSolver sudokuSolver=new SudokuSolver(game.getSodokuModel(),SodokuView.this);
+        SodokuController sodokuController=new SodokuController(this,game, timeView,sudokuSolver);
         setPreferredSize(Constants.DIMENSION_DEFAULT);
         JPanel sodokuContainer=new JPanel(new GridLayout(3, 3,2,2));
         sodokuContainer.setBorder(BorderFactory.createEmptyBorder(3,3, 3, 3));
@@ -89,10 +91,11 @@ public class SodokuView extends JPanel implements View {
         jButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                SudokuSolver sudokuSolver=new SudokuSolver(sodokuModel,SodokuView.this);
+
                 try {
-                    sudokuSolver.solveSudoku();
-                } catch (InterruptedException e) {
+                    sudokuSolver.solve();
+                    timeView.getTimer().stop();
+                } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
 

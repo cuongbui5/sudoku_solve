@@ -13,22 +13,19 @@ import java.awt.event.ActionListener;
 public class TimeController implements ActionListener {
     private final TimeView timeView;
     private final Game game;
-    private int count=0;
+
 
     public TimeController(TimeView timeView, Game game) {
         this.timeView = timeView;
         this.game = game;
     }
+    public void stop(){
+        timeView.getTimer().stop();
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         int time = timeView.getTime() - 1;
-        /*count++;
-        if(count==15){
-            JOptionPane.showMessageDialog(null,"15s");
-            System.out.println("canh bao!");
-            count=0;
-        }*/
         timeView.getTimeJLabel().setText("Time: " + Utils.convertSecondToMinute(time));
         timeView.setTime(time);
         if (game.isEnd()) {

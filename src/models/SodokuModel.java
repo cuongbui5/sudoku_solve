@@ -81,7 +81,7 @@ public class SodokuModel implements Serializable {
                 temp++;
             }
         }
-        first=nodes;
+        first=nodes.clone();
         checkFalse=0;
         setTimeByType();
 

@@ -8,11 +8,9 @@ import views.TimeView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 public class ContinueController implements ActionListener {
-    private final TimeView timeView;
     private final Game game;
 
-    public ContinueController(TimeView timeView, Game game) {
-        this.timeView = timeView;
+    public ContinueController( Game game) {
         this.game = game;
     }
 

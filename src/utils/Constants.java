@@ -9,7 +9,7 @@ public class Constants {
     public static final int MAX_RANDOM = 80;
     public static final int EASY=5;
     public static final int MEDIUM=6;
-    public static final int DIFFICULT=7;
+    public static final int DIFFICULT=9;
     public static final Font FONT_BOARD_GAME = new Font("TimesRoman", Font.PLAIN, 25);
     public static final Font FONT_OVER_GAME = new Font("TimesRoman", Font.BOLD, 50);
     public static final Font FONT_BUTTON = new Font("TimesRoman", Font.BOLD, 20);
@@ -33,4 +33,5 @@ public class Constants {
     public static final int STATUS_LOSE = 0;
     public static final Color COLOR_DEFAULT = Color.RED;
     public static final Dimension DIMENSION_DEFAULT=new Dimension(500,500);
+    public static final Image backgroundImage = Toolkit.getDefaultToolkit().getImage("src/assets/bgsdk.jpg"); // Đường dẫn đến hình ảnh nền
 }
