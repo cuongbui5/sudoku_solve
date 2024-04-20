@@ -70,7 +70,7 @@ public class SodokuController implements ActionListener, KeyListener {
             int i=3-checkFalse;
             sodokuModel.setCheckFalse(checkFalse);
             timeView.updateCheck(checkFalse);
-            if(i>0){
+            if(i==1){
                 JOptionPane.showMessageDialog(null, "Nếu sai "+i+" lượt nữa bạn sẽ thua!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
             }
 

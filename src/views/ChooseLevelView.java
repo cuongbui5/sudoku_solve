@@ -53,7 +53,7 @@ public class ChooseLevelView extends JPanel implements View {
         topPanel.add(backButton, BorderLayout.WEST); // Đặt nút Back ở bên trái
 
         // Panel chứa các nút chọn level
-        JPanel container = new JPanel(new GridLayout(0, 3, 10, 10));
+        JPanel container = new JPanel(new GridLayout(0, 6, 10, 10));
         container.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
 
